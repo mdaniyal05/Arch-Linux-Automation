@@ -55,6 +55,7 @@ else
     echo "yay is already installed"
 fi
 
+# Install packages
 if [[ "$DEV_ONLY" == true ]]; then
     echo "Installing system utilities...."
     install_required_packages "${SYSTEM_UTILS[@]}"
