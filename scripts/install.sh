@@ -77,6 +77,11 @@ else
 
     echo "Installing fonts...."
     install_required_packages "${FONTS[@]}"
+
+    echo "Installing node.js...."
+    curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.3/install.sh | bash
+    \. "$HOME/.nvm/nvm.sh"
+    nvm install 22
 fi
 
 echo "Setup completed! Reboot your system."
