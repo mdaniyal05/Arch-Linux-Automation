@@ -71,6 +71,9 @@ else
     echo "Installing media tools...."
     install_required_packages "${MEDIA_TOOLS[@]}"
 
+    echo "Installing hyprland tools...."
+    install_required_packages "${HYPRLAND[@]}"
+
     echo "Installing fonts...."
     install_required_packages "${FONTS[@]}"
 fi
