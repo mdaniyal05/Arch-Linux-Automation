@@ -28,15 +28,21 @@ sudo pacman -Syu --noconfirm
 
 # Start and enable services
 for service in "${SERVICES[@]}"; do
+  if [ "$service" == "postgresql.service" ]; then
+    sudo -u postgres initdb --locale en_US.UTF-8 -D /var/lib/postgres/data --data-checksums
+  fi
+
   if ! systemctl is-active "$service" &> /dev/null; then
     echo "Starting $service...."
     sudo systemctl start "$service"
   else
     echo "$service is already active."
+  fi
 
   if ! systemctl is-enabled "$service" &> /dev/null; then
     echo "Enabling $service...."
     sudo systemctl enable "$service"
   else
     echo "$service is already enabled."
+  fi
 done
