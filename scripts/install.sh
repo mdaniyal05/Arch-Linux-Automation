@@ -77,6 +77,7 @@ else
 
     echo "Installing fonts...."
     install_required_packages "${FONTS[@]}"
+    sudo pacman -S $(pacman -Sgq nerd-fonts)
 fi
 
 echo "Setup completed! Reboot your system."
