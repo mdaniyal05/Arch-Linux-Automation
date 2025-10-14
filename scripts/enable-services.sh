@@ -23,9 +23,6 @@ fi
 
 source packages.conf
 
-echo "Updating whole system first...."
-sudo pacman -Syu --noconfirm
-
 # Start and enable services
 for service in "${SERVICES[@]}"; do
   if [ "$service" == "postgresql.service" ]; then
@@ -45,4 +42,6 @@ for service in "${SERVICES[@]}"; do
   else
     echo "$service is already enabled."
   fi
+
+  sudo systemctl status "$service"
 done
